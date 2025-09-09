@@ -1,4 +1,4 @@
-from forecastos.utils.readable import Readable
+from investos.forecastos.utils.readable import Readable
 
 
 class Provider(Readable):
