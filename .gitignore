@@ -15,3 +15,5 @@ guides_tmp
 false/*
 docs/build/*
 benchmarks/
+menv
+.venv

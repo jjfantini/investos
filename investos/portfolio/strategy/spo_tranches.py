@@ -74,7 +74,9 @@ class SPOTranches(BaseStrategy):
             self.n_share_block = kwargs.get("n_share_block", 100)
             self.actual_prices = kwargs.get("actual_prices", None)
 
-    def formulate_optimization_problem(self, holdings: pd.Series, t: dt.datetime):
+    def formulate_optimization_problem(
+        self, holdings: pd.Series, t: dt.datetime
+    ):
         value = sum(holdings)
         w = holdings / value  # Portfolio weights
         z = cvx.Variable(w.size)  # Portfolio trades
@@ -135,7 +137,9 @@ class SPOTranches(BaseStrategy):
             )
             delayed_tasks.append(delayed_task)
 
-        print(f"\nComputing trades at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.")
+        print(
+            f"\nComputing trades at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}."
+        )
         results = compute(*delayed_tasks)
         print(
             f"\nFinished computing trades at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}."
@@ -148,7 +152,9 @@ class SPOTranches(BaseStrategy):
 
         return results
 
-    def generate_trade_list(self, holdings: pd.Series, t: dt.datetime) -> pd.Series:
+    def generate_trade_list(
+        self, holdings: pd.Series, t: dt.datetime
+    ) -> pd.Series:
         """Calculates and returns trade list (in units of currency passed in) using convex (single period) optimization.
 
         Parameters
@@ -227,7 +233,9 @@ class SPOTranches(BaseStrategy):
 
         return u
 
-    def _cum_returns_to_scale_unwind(self, t_unwind: dt.datetime, t: dt.datetime):
+    def _cum_returns_to_scale_unwind(
+        self, t_unwind: dt.datetime, t: dt.datetime
+    ):
         df = self.actual_returns + 1
         df = df[(df.index >= t_unwind) & (df.index < t)]
 

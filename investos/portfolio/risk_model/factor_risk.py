@@ -3,11 +3,11 @@ import warnings
 from datetime import datetime, timedelta
 
 import cvxpy as cvx
-import forecastos as fos
 import numpy as np
 import pandas as pd
 import statsmodels.api as sm
 
+import investos.forecastos as fos
 import investos.portfolio.risk_model.risk_util as risk_util
 import investos.util as util
 from investos.portfolio.risk_model import BaseRisk
