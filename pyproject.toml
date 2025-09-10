@@ -44,7 +44,6 @@ dependencies = [
 ]
 #forecastos - now included in investos
 
-
 [project.urls]
 Homepage = "https://investos.io/"
 Repository = "https://github.com/forecastos/investos"
